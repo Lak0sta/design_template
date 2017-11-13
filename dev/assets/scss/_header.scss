@@ -1,0 +1,149 @@
+#myCanvas{
+    width: 100%;
+    height:  100%;
+    display: block;
+    position: relative;
+}
+.header{
+    
+    &__main{
+        background: #e9eae2;
+        &__position{
+            padding-top: 5rem;
+            padding-right: 0;
+            @include flex;
+        }
+    }
+    &__info{
+        background: $turquoise__color;
+        position: relative;
+        &__position{
+            padding-top: 5rem;
+            padding-left: 0;
+        }
+        &__address{
+            position: absolute;
+            bottom: 30%;
+            left: 5%;
+            width: 30%;
+            font-family: $RobotoCondensedRegular;
+            @include font(1.3rem,1.5rem,#f6fcfb);
+            text-transform: uppercase;
+        }
+        &__contacts{
+            position: absolute;
+            bottom: 15%;
+            left: 25%;
+            width: 50%;
+        }
+        &__contacts a{
+            display: block;
+            font-family: $RobotoCondensedRegular;
+            @include font(1.3rem,1.5rem,#f6fcfb);
+            text-transform: uppercase;
+        }
+    }
+    
+}
+
+.main{
+    &__picture{
+        background: url('../img/header/img1.png') no-repeat top;
+        background-size: cover;
+    }
+    &__logo{
+        padding-left: 1.5rem !important;
+        &__desc{
+            display: block;
+            font-family: $RobotoCondensedRegular;
+            @include font(1.8rem,2rem,#000);
+            text-transform: uppercase;
+            padding-bottom: 6rem;
+        }
+        &__socials{
+            padding-left: 1.5rem;
+            &--list{
+                display: flex;
+            }
+            &--item{
+                color: $turquoise__color;
+                padding-right: 1rem;
+            }
+        }
+    }
+}
+.burger{
+    cursor: pointer;
+    width: 12rem;
+    height: 12rem;
+    position: absolute;
+    bottom: 61%;
+    left: 21%;
+    border: 3px solid $burger_color;
+    transition: 1s;
+    &__line{
+        display: block;
+        height: 3px;
+        width: 4rem;
+        background: $burger_color;
+        position: absolute;
+    }
+    &__top{
+        top: 40%;
+        left: 33%;
+        transition: 1s;
+    }
+    &__middle{
+        top: 45%;
+        left: 33%;
+        transition: 1s;
+    }
+    &__bottom{
+        top: 49%;
+        left: 33%;
+        transition: 1s;
+    }
+}
+.nav{
+    transition: 1s;
+    display: none;
+    align-items: center;
+    position: absolute;
+    bottom: 61%;
+    right: 79%;
+    height: 12rem;
+    background: $color_menu;
+    &__item{
+        color: #ffffff;
+        background: $color_menu;
+        font-family: $RobotoRegular;
+        text-transform: uppercase;
+        @include font(1.4rem,1.6rem,$bgcolor);
+        height: 12rem;
+        padding: 0 3.5rem;
+        
+
+    }
+}
+.nav.active{
+    @include flex;
+    transition: 1s;
+}
+.burger.active{
+    background: $color_menu;
+    border: none;
+    transition: 1s;
+}
+.burger.active .burger__top{
+        top:40%;
+        transform: rotate(-45deg);
+    }
+    .burger.active .burger__middle
+    {
+        top: 40%;
+        opacity: 0;
+    }
+    .burger.active .burger__bottom{
+        top: 40%;
+        transform: rotate(45deg);
+    }

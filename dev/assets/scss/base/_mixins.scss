@@ -1,0 +1,63 @@
+@mixin center_transform() {
+	position:absolute;
+  left:50%;top:50%;
+  transform:translate(-50%, -50%);
+  -moz-transform:translate(-50%, -50%);
+  -webkit-transform:translate(-50%, -50%);
+  -ms-transform:translate(-50%, -50%);
+  -o-transform:translate(-50%, -50%);
+}
+
+@mixin vertical_center_transform() {
+	position:absolute;
+  left:0;top:50%;
+  width: 100%;
+  transform:translate(0, -50%);
+  -moz-transform:translate(0, -50%);
+  -webkit-transform:translate(0, -50%);
+  -ms-transform:translate(0, -50%);
+  -o-transform:translate(0, -50%);
+}
+
+@mixin font($font-s, $font-h, $font-c) {
+  font-size: $font-s;
+  line-height: $font-h;
+  color:$font-c;
+}
+@mixin flex{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+//-------------font face--------------------
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ) {
+	@font-face { 
+		font-family: $font-family;
+		font-weight: $weight;
+		font-style: $style;
+	
+		@if $asset-pipeline == true {
+			src: font-url('#{$file-path}.eot');
+			src: font-url('#{$file-path}.eot?#iefix') format('embedded-opentype'), 
+				font-url('#{$file-path}.woff') format('woff'), 
+				font-url('#{$file-path}.ttf') format('truetype');
+		}
+		@else {
+			src: url('#{$file-path}.eot');
+			src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), 
+				url('#{$file-path}.woff') format('woff'), 
+				url('#{$file-path}.ttf') format('truetype');
+		}
+	}
+}
+
+//-------------input placeholder---------------------
+@mixin placeholder($color, $font){
+	&::-webkit-input-placeholder { color:$color; font-family:$font;}
+	&::-moz-placeholder { color:$color; font-family:$font;}
+	&:-ms-input-placeholder { color:$color; font-family:$font;}
+	&:-moz-placeholder { color:$color; font-family:$font;}
+}
